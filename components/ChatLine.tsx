@@ -42,7 +42,7 @@ const convertNewLines = (text: string) =>
     </span>
   ))
 
-export function ChatLine({ role = 'assistant', content }: ChatGPTMessage) {
+export function ChatLine({ role = 'system', content }: ChatGPTMessage) {
   if (!content) {
     return null
   }
@@ -60,13 +60,13 @@ export function ChatLine({ role = 'assistant', content }: ChatGPTMessage) {
             <div className="flex-1 gap-4">
               <p className="font-large text-xxl text-gray-900">
                 <a href="#" className="hover:underline">
-                  {role == 'assistant' ? 'AI' : 'You'}
+                  {role == 'assistant' ? 'MeGPT' : 'You'}
                 </a>
               </p>
               <p
                 className={clsx(
                   'text ',
-                  role == 'assistant' ? 'font-semibold font- ' : 'text-gray-400'
+                  role == 'system' ? 'font-semibold font- ' : 'text-gray-400'
                 )}
               >
                 {formatteMessage}
